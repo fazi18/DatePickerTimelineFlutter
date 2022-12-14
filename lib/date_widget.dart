@@ -32,23 +32,31 @@ class DateWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 5),
         width: width,
         margin: EdgeInsets.all(3.0),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-          color: selectionColor,
-        ),
+            borderRadius: BorderRadius.all(Radius.circular(8.0)),
+            color: selectionColor,
+            border: Border.all(
+                color: Color.fromARGB(255, 214, 213, 213).withOpacity(.5))),
         child: Padding(
           padding: EdgeInsets.all(8),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
+              Text(
+                  new DateFormat("MMM", locale)
+                      .format(date)
+                      .toUpperCase(), // Month
                   style: monthTextStyle),
               Text(date.day.toString(), // Date
                   style: dateTextStyle),
-              Text(new DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
+              Text(
+                  new DateFormat("E", locale)
+                      .format(date)
+                      .toUpperCase(), // WeekDay
                   style: dayTextStyle)
             ],
           ),
